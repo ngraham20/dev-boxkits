@@ -11,12 +11,10 @@ grep -v '^#' ./packages.list | xargs dnf install -y
 # install go
 curl https://go.dev/dl/go1.24.0.linux-amd64.tar.gz -O /tmp/go.tar.gz
 tar -C /usr/local -xzf /tmp/go.tar.gz
-fish_add_path -g /usr/local/go/bin
 
 # install homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-export PATH=$PATH:/home/linuxbrew.linuxbrew/bin
-fish_add_path -f /home/linuxbrew/.linuxbrew/bin
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # use brew to install kubernetes and openshift tools
 brew install kubectl
