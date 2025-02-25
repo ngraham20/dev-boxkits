@@ -5,6 +5,7 @@ on:
     branches:
       - main
   push:
+    tags: [v*]
     branches:
       - main
     paths-ignore: # don't rebuild on documentation change
@@ -13,7 +14,7 @@ on:
     - cron: '0 0 * * TUE'
 
 env:
-    IMAGE_TAGS: latest
+    IMAGE_TAGS: ${{ steps.meta.outputs.tags || 'latest' }}
     IMAGE_REGISTRY: ghcr.io/${{ github.repository_owner }}
 
 jobs:
