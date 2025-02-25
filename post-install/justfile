@@ -11,4 +11,4 @@ enable-1password-ssh:
 
 setup-vscode:
     mkdir -p ~/.vscode-extensions
-    code $(grep -v '^#' /opt/post-install/vscode-extensions.list | sed 's/\(.*\)/--install-extension \1/' | xargs)
+    grep -v '^#' vscode-extensions.list | sed 's/\(.*\)/--install-extension \1/' | xargs code --extensions-dir $HOME/.vscode-extensions
