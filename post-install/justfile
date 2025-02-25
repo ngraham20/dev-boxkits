@@ -11,9 +11,7 @@ enable-1password-ssh:
 
 setup-vscode:
     mkdir -p ~/.vscode-extensions
-    code --extensions-dir ~/.vscode-extensions --install-extension sdras.night-owl
-    code --extensions-dir ~/.vscode-extensions --install-extension golang.Go
-    code --extensions-dir ~/.vscode-extensions --install-extension eamodio.gitlens
+    grep -v '^#' /opt/post-install/vscode-extensions.list | xargs -I {} code --extensions-dir ~/.vscode-extensions --install-extension {}
 
 install-additional-go-versions:
     grep -v '^#' /opt/post-install/goversions.list | sed 's/\(.*\)/golang.org\/dl\/\1@latest/' | xargs go install
