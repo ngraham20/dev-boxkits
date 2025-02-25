@@ -1,2 +1,8 @@
-post-install:
-    cp -r .config/ ~/.config/
+setup-configs:
+    rsync -a /opt/post-install/.config/ ~/.config/
+    ln -s $DISTROBOX_HOST_HOME/.gitconfig ~/.gitconfig
+
+enable-1password-ssh:
+    ln -s $DISTROBOX_HOST_HOME/.1password ~/.1password
+    mkdir -p ~/.ssh
+    cp $DISTROBOX_HOST_HOME/.ssh/config ~/.ssh/config
