@@ -7,8 +7,8 @@
 dnf update -y
 grep -v '^#' ./packages.list | xargs dnf install -y
 
-# install go
-curl -L https://go.dev/dl/go1.24.0.linux-amd64.tar.gz -o /tmp/go.tar.gz
+# install latest go
+curl -L "https://go.dev/dl/$(curl 'https://go.dev/VERSION?m=text' | head -n 1).linux-amd64.tar.gz" -o /tmp/go.tar.gz
 tar -C /usr/local -xzf /tmp/go.tar.gz
 
 # install vscode
