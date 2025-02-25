@@ -9,7 +9,7 @@ grep -v '^#' ./packages.list | xargs dnf install -y
 
 
 # install go
-curl https://go.dev/dl/go1.24.0.linux-amd64.tar.gz -o /tmp/go.tar.gz
+curl -L https://go.dev/dl/go1.24.0.linux-amd64.tar.gz -o /tmp/go.tar.gz
 tar -C /usr/local -xzf /tmp/go.tar.gz
 
 # install homebrew
