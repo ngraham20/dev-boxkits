@@ -11,8 +11,4 @@ enable-1password-ssh:
 
 setup-vscode:
     mkdir -p ~/.vscode-extensions
-    grep -v '^#' /opt/post-install/vscode-extensions.list | xargs -I {} code --extensions-dir ~/.vscode-extensions --install-extension {}
-
-install-additional-go-versions:
-    grep -v '^#' /opt/post-install/goversions.list | sed 's/\(.*\)/golang.org\/dl\/\1@latest/' | xargs go install
-    grep -v '^#' /opt/post-install/goversions.list | xargs -I {} sh -c '{} download'
+    code $(grep -v '^#' /opt/post-install/vscode-extensions.list | sed 's/\(.*\)/--install-extension \1/' | xargs)
