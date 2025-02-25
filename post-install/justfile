@@ -1,3 +1,5 @@
+all: setup-configs enable-1password-ssh setup-vscode
+
 setup-configs:
     rsync -a /opt/post-install/.config/ ~/.config/
     ln -s $DISTROBOX_HOST_HOME/.gitconfig ~/.gitconfig
@@ -7,5 +9,8 @@ enable-1password-ssh:
     mkdir -p ~/.ssh
     cp $DISTROBOX_HOST_HOME/.ssh/config ~/.ssh/config
 
-create-vscode-extensions-dir:
+setup-vscode:
     mkdir -p ~/.vscode-extensions
+    code --extensions-dir ~/.vscode-extensions --install-extension sdras.night-owl
+    code --extensions-dir ~/.vscode-extensions --install-extension golang.Go
+    code --extensions-dir ~/.vscode-extensions --install-extension eamodio.gitlens
