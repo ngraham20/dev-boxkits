@@ -12,7 +12,7 @@ curl -L https://go.dev/dl/go1.24.0.linux-amd64.tar.gz -o /tmp/go.tar.gz
 tar -C /usr/local -xzf /tmp/go.tar.gz
 
 # install vscode
-curl -L https://code.visualstudio.com/sha/download?build=stable&os=linux-rpm-x64 -o /tmp/code.rpm
+curl -L "https://code.visualstudio.com/sha/download?build=stable&os=linux-rpm-x64" -o /tmp/code.rpm
 dnf install -y /tmp/code.rpm
 
 # install homebrew
