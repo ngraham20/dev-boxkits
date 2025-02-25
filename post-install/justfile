@@ -1,4 +1,4 @@
 post-install:
     cp ./config.fish ~/.config/fish/config.fish
-    mkdir ~/.config/helix
+    mkdir -p ~/.config/helix
     cp ./config.toml ~/.config/helix/config.toml
