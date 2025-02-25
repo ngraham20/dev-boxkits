@@ -8,8 +8,12 @@ dnf update -y
 grep -v '^#' ./packages.list | xargs dnf install -y
 
 # install latest go
-curl -L "https://go.dev/dl/$(curl 'https://go.dev/VERSION?m=text' | head -n 1).linux-amd64.tar.gz" -o /tmp/go.tar.gz
+LATEST_GO_VERSION="$(curl 'https://go.dev/VERSION?m=text' | head -n 1)"
+curl -L "https://go.dev/dl/$LATEST_GO_VERSION.linux-amd64.tar.gz" -o /tmp/go.tar.gz
 tar -C /usr/local -xzf /tmp/go.tar.gz
+
+# install listed go versions
+grep -v '^#' ./goversions.list | sed 's/\(.*\)/golang.org\/dl\/\1@latest/' | xargs go install
 
 # install vscode
 curl -L "https://code.visualstudio.com/sha/download?build=stable&os=linux-rpm-x64" -o /tmp/code.rpm
