@@ -14,3 +14,7 @@ setup-vscode:
     code --extensions-dir ~/.vscode-extensions --install-extension sdras.night-owl
     code --extensions-dir ~/.vscode-extensions --install-extension golang.Go
     code --extensions-dir ~/.vscode-extensions --install-extension eamodio.gitlens
+
+install-additional-go-versions:
+    grep -v '^#' /opt/post-install/goversions.list | sed 's/\(.*\)/golang.org\/dl\/\1@latest/' | xargs go install
+    grep -v '^#' /opt/post-install/goversions.list | xargs -I {} sh -c '{} download'

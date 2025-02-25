@@ -9,11 +9,10 @@ LABEL com.github.containers.toolbox="true" \
 COPY ../scripts/build.sh /
 COPY ../scripts/distrobox-shims.sh /
 COPY ../packages/packages.list /
-COPY ../packages/goversions.list /
 
 # Run the setup scripts
 RUN chmod +x build.sh distrobox-shims.sh && /build.sh
-RUN rm /build.sh /distrobox-shims.sh /packages.list /goversions.list
+RUN rm /build.sh /distrobox-shims.sh /packages.list
 
 RUN mkdir -p /opt/post-install
 COPY ../post-install /opt/post-install
