@@ -13,3 +13,6 @@ COPY ../packages/packages.list /
 # Run the setup scripts
 RUN chmod +x build.sh distrobox-shims.sh && /build.sh
 RUN rm /build.sh /distrobox-shims.sh /packages.list
+
+RUN mkdir -p /opt/post-install
+COPY ../post-install /opt/post-install

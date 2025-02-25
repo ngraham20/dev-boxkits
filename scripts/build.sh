@@ -7,7 +7,6 @@
 dnf update -y
 grep -v '^#' ./packages.list | xargs dnf install -y
 
-
 # install go
 curl -L https://go.dev/dl/go1.24.0.linux-amd64.tar.gz -o /tmp/go.tar.gz
 tar -C /usr/local -xzf /tmp/go.tar.gz
@@ -20,3 +19,6 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 brew install kubectl
 brew install kind
 brew install openshift-cli
+
+# install starship
+brew install starship
