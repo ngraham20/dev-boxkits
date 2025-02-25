@@ -15,6 +15,7 @@ fish_add_path -g /usr/local/go/bin
 
 # install homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fish_add_path -f /home/linuxbrew/.linuxbrew/bin
 
 # use brew to install kubernetes and openshift tools
 brew install kubectl
