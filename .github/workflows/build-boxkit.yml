@@ -14,7 +14,7 @@ on:
     - cron: '0 0 * * TUE'
 
 env:
-    IMAGE_TAGS: ${{ format('{0} {1}', 'latest', github.ref_name != 'main' && github.ref_name)}}
+    IMAGE_TAGS: ${{ format('{0} {1}', 'latest', github.ref_name != 'main' && github.ref_name || '')}}
     IMAGE_REGISTRY: ghcr.io/${{ github.repository_owner }}
 
 jobs:
