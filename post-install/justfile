@@ -8,6 +8,7 @@ enable-1password-ssh:
     ln -s $DISTROBOX_HOST_HOME/.1password ~/.1password
     mkdir -p ~/.ssh
     cp $DISTROBOX_HOST_HOME/.ssh/config ~/.ssh/config
+    sudo ln -s /run/host/opt/1Password /opt/1Password
 
 setup-vscode:
     mkdir -p ~/.vscode-extensions
