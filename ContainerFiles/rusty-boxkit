@@ -6,13 +6,13 @@ LABEL com.github.containers.toolbox="true" \
       maintainer="nathaniel.graham@protonmail.com"
 
 # Copy the setup scripts and package list
-COPY ../kube-boxkit/scripts/build.sh /
-COPY ../kube-boxkit/scripts/distrobox-shims.sh /
-COPY ../kube-boxkit/packages/packages.list /
+COPY ../rust-boxkit/scripts/build.sh /
+COPY ../rust-boxkit/scripts/distrobox-shims.sh /
+COPY ../rust-boxkit/packages/packages.list /
 
 # Run the setup scripts
 RUN chmod +x build.sh distrobox-shims.sh && /build.sh
 RUN rm /build.sh /distrobox-shims.sh /packages.list
 
 RUN mkdir -p /opt/post-install
-COPY ../kube-boxkit/post-install /opt/post-install
+COPY ../rust-boxkit/post-install /opt/post-install

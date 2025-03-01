@@ -1,0 +1,18 @@
+all: setup-configs enable-1password-ssh install-rust setup-vscode
+
+setup-configs:
+    rsync -a /opt/post-install/.config/ ~/.config/
+    ln -s $DISTROBOX_HOST_HOME/.gitconfig ~/.gitconfig
+
+enable-1password-ssh:
+    ln -s $DISTROBOX_HOST_HOME/.1password ~/.1password
+    mkdir -p ~/.ssh
+    cp $DISTROBOX_HOST_HOME/.ssh/config ~/.ssh/config
+    sudo ln -s /run/host/opt/1Password /opt/1Password
+
+install-rust:
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+
+setup-vscode:
+    mkdir -p ~/.vscode-extensions
+    grep -v '^#' vscode-extensions.list | sed 's/\(.*\)/--install-extension \1/' | xargs code --extensions-dir $HOME/.vscode-extensions
