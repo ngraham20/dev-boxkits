@@ -8,9 +8,9 @@ on:
     branches:
       - main
     paths:
-      - rusty-boxkit
-    paths-ignore: # don't rebuild on documentation change
-      - '**.md'
+      - rusty-boxkit/**
+      - ContainerFiles/**
+      - .github/workflows/**
   schedule:
     - cron: '0 0 * * TUE'
 

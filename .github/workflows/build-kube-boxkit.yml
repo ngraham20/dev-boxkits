@@ -8,9 +8,9 @@ on:
     branches:
       - main
     paths:
-      - kube-boxkit
-    paths-ignore: # don't rebuild on documentation change
-      - '**.md'
+      - kube-boxkit/**
+      - ContainerFiles/**
+      - .github/workflows/**
   schedule:
     - cron: '0 0 * * TUE'
 
