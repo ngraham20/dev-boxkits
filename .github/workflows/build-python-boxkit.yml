@@ -8,9 +8,9 @@ on:
     branches:
       - main
     paths:
-      - rusty-boxkit/**
-      - ContainerFiles/rusty-boxkit
-      - .github/workflows/build-rusty-boxkit.yml
+      - python-boxkit/**
+      - ContainerFiles/python-boxkit
+      - .github/workflows/build-python-boxkit.yml
   schedule:
     - cron: '0 0 * * TUE'
 
@@ -30,7 +30,7 @@ jobs:
       fail-fast: false
       matrix:
         containerfile: 
-          - rusty-boxkit
+          - kubernetes-boxkit
     steps:
       # Clone code to runner
       - name: Checkout

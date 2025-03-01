@@ -9,8 +9,8 @@ on:
       - main
     paths:
       - kube-boxkit/**
-      - ContainerFiles/**
-      - .github/workflows/**
+      - ContainerFiles/kubernetes-boxkit
+      - .github/workflows/build-kube-boxkit.yml
   schedule:
     - cron: '0 0 * * TUE'
 
