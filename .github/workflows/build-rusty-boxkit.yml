@@ -7,6 +7,8 @@ on:
   push:
     branches:
       - main
+    paths:
+      - rusty-boxkit
     paths-ignore: # don't rebuild on documentation change
       - '**.md'
   schedule:
@@ -28,7 +30,6 @@ jobs:
       fail-fast: false
       matrix:
         containerfile: 
-          - kubernetes-boxkit
           - rusty-boxkit
     steps:
       # Clone code to runner
