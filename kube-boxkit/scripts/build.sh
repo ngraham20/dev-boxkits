@@ -15,15 +15,3 @@ tar -C /usr/local -xzf /tmp/go.tar.gz
 # install vscode
 curl -L "https://code.visualstudio.com/sha/download?build=stable&os=linux-rpm-x64" -o /tmp/code.rpm
 dnf install -y /tmp/code.rpm
-
-# install homebrew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
-# use brew to install kubernetes and openshift tools
-brew install kubectl
-brew install kind
-brew install openshift-cli
-
-# install starship
-brew install starship

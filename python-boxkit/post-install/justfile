@@ -2,13 +2,13 @@ all: setup-configs enable-1password-ssh setup-vscode
 
 setup-configs:
     rsync -a /opt/post-install/.config/ ~/.config/
-    ln -s $DISTROBOX_HOST_HOME/.gitconfig ~/.gitconfig
+    ln -sfn $DISTROBOX_HOST_HOME/.gitconfig ~/.gitconfig
 
 enable-1password-ssh:
-    ln -s $DISTROBOX_HOST_HOME/.1password ~/.1password
+    ln -sfn $DISTROBOX_HOST_HOME/.1password ~/.1password
     mkdir -p ~/.ssh
     cp $DISTROBOX_HOST_HOME/.ssh/config ~/.ssh/config
-    sudo ln -s /run/host/opt/1Password /opt/1Password
+    sudo ln -sfn /run/host/opt/1Password /opt/1Password
 
 setup-vscode:
     mkdir -p ~/.vscode-extensions
