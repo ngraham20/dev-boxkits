@@ -1,5 +1,5 @@
 # Development Boxkits
-## Features shared across all boxkits
+## Features shared across all boxkits (`post-install/vscode-extensions.list`)
 - VS Code
 - Night Owl VSCode theme (my dark theme of choice)
 
@@ -7,8 +7,7 @@
 ### Rust development tools
 - rust
 
-### VS Code Extensions
-By default, this image comes with three VS Code extensions, which can be modified by changing `post-install/vscode-extensions.list`
+### Additional VS Code Extensions
 - rust-analyzer (for Rust)
 
 ## Kubernetes devkit Features
@@ -19,8 +18,7 @@ By default, this image comes with three VS Code extensions, which can be modifie
 
 ![image](https://github.com/user-attachments/assets/29ee97b9-e09f-4ddc-a681-67758f4b13a6)
 
-### VS Code Extensions
-By default, this image comes with three VS Code extensions, which can be modified by changing `post-install/vscode-extensions.list`
+### Additional VS Code Extensions
 - Git Lens (For git blame and other inspection tools)
 - Go (for uh. Go)
 
