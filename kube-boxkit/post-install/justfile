@@ -23,6 +23,7 @@ setup-homebrew:
     brew install kubectl
     brew install kind
     brew install openshift-cli
+    brew install operator-sdk
 
     # install starship
     brew install starship
