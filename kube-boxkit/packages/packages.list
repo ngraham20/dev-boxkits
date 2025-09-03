@@ -8,3 +8,4 @@ make
 python3
 wl-clipboard
 zoxide
+ansible-core
