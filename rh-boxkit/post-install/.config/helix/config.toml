@@ -1,1 +1,3 @@
 theme="night_owl"
+[editor]
+clipboard-provider = "wayland"
