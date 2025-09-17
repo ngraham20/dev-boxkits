@@ -16,11 +16,24 @@
 - openshift-client (oc)
 - go
 
-![image](https://github.com/user-attachments/assets/29ee97b9-e09f-4ddc-a681-67758f4b13a6)
-
 ### Additional VS Code Extensions
 - Git Lens (For git blame and other inspection tools)
 - Go (for uh. Go)
+
+![image](https://github.com/user-attachments/assets/29ee97b9-e09f-4ddc-a681-67758f4b13a6)
+
+## RH devkit Features
+All of the Kubernetes devkit features *plus*
+- openshift-cli
+- operator-sdk
+- ansible
+- tektoncd-cli
+- gh
+
+### Additional VS Code Extensions
+- Python
+- Go
+- GitLens
 
 These extensions are installed to `$HOME/.vscode-extensions`, which keeps them separate from any other boxes you might spin up. This means your extensions can be unique to the dev environment you use the dev box for.
 
