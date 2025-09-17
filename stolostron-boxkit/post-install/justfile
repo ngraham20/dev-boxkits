@@ -1,0 +1,32 @@
+all: setup-configs enable-1password-ssh setup-vscode setup-homebrew
+
+setup-configs:
+    rsync -a /opt/post-install/.config/ ~/.config/
+    ln -sfn $DISTROBOX_HOST_HOME/.gitconfig ~/.gitconfig
+
+enable-1password-ssh:
+    ln -sfn $DISTROBOX_HOST_HOME/.1password ~/.1password
+    mkdir -p ~/.ssh
+    cp $DISTROBOX_HOST_HOME/.ssh/config ~/.ssh/config
+    sudo ln -sfn /run/host/opt/1Password /opt/1Password
+
+setup-vscode:
+    mkdir -p ~/.vscode-extensions
+    grep -v '^#' vscode-extensions.list | sed 's/\(.*\)/--install-extension \1/' | xargs code --extensions-dir $HOME/.vscode-extensions
+
+setup-homebrew:
+    # install homebrew
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+    # use brew to install kubernetes and openshift tools
+    brew install kubectl
+    brew install kind
+    brew install openshift-cli
+    brew install operator-sdk
+    brew install ansible
+    brew install tektoncd-cli
+    brew install gh
+
+    # install starship
+    brew install starship
