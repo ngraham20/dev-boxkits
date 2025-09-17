@@ -1,0 +1,18 @@
+FROM registry.fedoraproject.org/fedora-toolbox:latest
+
+LABEL com.github.containers.toolbox="true" \
+      usage="This image is meant to be used with the toolbox or distrobox command" \
+      summary="A cloud-native terminal experience" \
+      maintainer="nathaniel.graham@protonmail.com"
+
+# Copy the setup scripts and package list
+COPY ../rh-boxkit/scripts/build.sh /
+COPY ../rh-boxkit/scripts/distrobox-shims.sh /
+COPY ../rh-boxkit/packages/packages.list /
+
+# Run the setup scripts
+RUN chmod +x build.sh distrobox-shims.sh && /build.sh
+RUN rm /build.sh /distrobox-shims.sh /packages.list
+
+RUN mkdir -p /opt/post-install
+COPY ../rh-boxkit/post-install /opt/post-install
