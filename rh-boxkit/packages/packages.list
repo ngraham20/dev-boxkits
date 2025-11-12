@@ -8,3 +8,4 @@ make
 python3
 zoxide
 yq
+awscli
