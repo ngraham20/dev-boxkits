@@ -1,4 +1,4 @@
-all: setup-configs enable-1password-ssh setup-vscode setup-homebrew
+all: setup-configs enable-1password-ssh setup-vscode setup-tmux setup-homebrew
 
 setup-configs:
     rsync -a /opt/post-install/.config/ ~/.config/
@@ -13,6 +13,9 @@ enable-1password-ssh:
 setup-vscode:
     mkdir -p ~/.vscode-extensions
     grep -v '^#' vscode-extensions.list | sed 's/\(.*\)/--install-extension \1/' | xargs code --extensions-dir $HOME/.vscode-extensions
+
+setup-tmux:
+    cp /opt/post-install/.tmux.conf ~/.tmux.config
 
 setup-homebrew:
     # install homebrew
