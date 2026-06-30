@@ -15,7 +15,7 @@ setup-vscode:
     grep -v '^#' vscode-extensions.list | sed 's/\(.*\)/--install-extension \1/' | xargs code --extensions-dir $HOME/.vscode-extensions
 
 setup-tmux:
-    cp /opt/post-install/.tmux.conf ~/.tmux.config
+    cp /opt/post-install/.tmux.conf ~/.tmux.conf
 
 setup-homebrew:
     # install homebrew
